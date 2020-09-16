@@ -30,7 +30,7 @@ namespace LoggingKata
             var locations = lines.Select(parser.Parse).ToArray();
 
             // DON'T FORGET TO LOG YOUR STEPS
-            logger.LogDebug($"Debug");
+            
             // Now that your Parse method is completed, START BELOW ----------
 
             // TODO: Create two `ITrackable` variables with initial values of `null`. These will be used to store your two taco bells that are the farthest from each other.
@@ -62,15 +62,10 @@ namespace LoggingKata
                 }
                 
             }
-            double minutesUp = store2.Location.Longitude - store1.Location.Longitude;
-                    double minAcross = store1.Location.Latitude - store2.Location.Latitude;
-                     double milesUp = (minutesUp * 288200) / 5280;
-                     double milesAcross = (minAcross * 364000) / 5280;
-                    double miles = milesUp + milesAcross;
-                        Console.WriteLine($"{miles}miles apart");
-
-            //var miles = (farthestDistance * 80) / 5280;
+            logger.LogInfo($" The{store1.Name} is farthest from {store2.Name} at {farthestDistance * .000621371}! ");
             
+                   
+
             Console.WriteLine($"Max distance: {farthestDistance}");
             Console.WriteLine($"{store1.Name} is farthest from {store2.Name}!");
             Console.WriteLine($"{store1.Name} is located at {store1.Location.Latitude},{store1.Location.Longitude}");
